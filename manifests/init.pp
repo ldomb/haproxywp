@@ -42,8 +42,8 @@ class haproxywp (
 
 ) {
 
-  $gce = { item => 'fact_values',
-  search => '(name = gce_public_ipv4 or name = gce_public_hostname)',
+ $gce = { item => 'fact_values',
+  search => "(name = gce_public_ipv4 or name = gce_public_hostname) and host !~ ${hostname}",
   per_page => '20',
   foreman_url  => $foreman_url,
   foreman_user => $foreman_user,
